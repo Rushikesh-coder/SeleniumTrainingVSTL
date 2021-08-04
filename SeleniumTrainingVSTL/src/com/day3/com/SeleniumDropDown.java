@@ -127,6 +127,8 @@ public class SeleniumDropDown {
 	public void clickOnShowMsg()
 	{
 		driver.findElement(By.xpath("//button[text()='Show Message']")).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;  
+		js.executeScript("window.scrollBy(0,1000)");
 	}
 	
 	public void verifyMsgOfSingleInput(String strExpectedMsg) {
@@ -142,12 +144,11 @@ public class SeleniumDropDown {
 		}
 	}
 	
-	public void setTwoInputFields(String strSumOne, String strSumTwo)
+	public void setTwoInputFields(String strLocator, String strNumber)
 	{
-		JavascriptExecutor js = (JavascriptExecutor) driver;  
-		js.executeScript("window.scrollBy(0,1000)");
-		driver.findElement(By.xpath("//*[@id='sum1']")).sendKeys(strSumOne);
-		driver.findElement(By.xpath("//*[@id='sum2']")).sendKeys(strSumTwo);
+		
+		driver.findElement(By.xpath("//*[@id='"+strLocator+"']")).sendKeys(strNumber);
+		
 		
 	}
 	public void clickOnGetTotal()

@@ -26,7 +26,8 @@ public class Utility {
 		objHashTable.put("Month", "");
 		objHashTable.put("Year", "");
 		objHashTable.put("Gender", "Male");
-
+		objHashTable.put("xpFirstName", "firstname");
+		objHashTable.put("xpLastName", "lastname");
 		objHashTable.put("HomePage", "LogOut");
 		return objHashTable;
 	}

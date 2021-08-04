@@ -44,13 +44,13 @@ public class SignUpFlow {
 
 		strTestData = objUtility.signUpTestData().get("FirstName")+objUtility.randomName(4);
 		if (!strTestData.equals("")) {
-			objFaceBookSignUpPage.setName(strTestData);
+			objFaceBookSignUpPage.setName(strTestData,objUtility.signUpTestData().get("xpFirstName"));
 
 		}
 
 		strTestData = objUtility.signUpTestData().get("LastName")+objUtility.randomName(4);
 		if (!strTestData.equals("")) {
-			objFaceBookSignUpPage.setLastName(strTestData);
+			objFaceBookSignUpPage.setLastName(strTestData, objUtility.signUpTestData().get("xpLastName"));
 		}
 
 		strTestData = objUtility.signUpTestData().get("MobileNumber")+objUtility.randomNumber();

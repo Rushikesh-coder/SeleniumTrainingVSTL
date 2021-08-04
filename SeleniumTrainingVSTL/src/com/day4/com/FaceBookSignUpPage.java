@@ -25,14 +25,26 @@ public class FaceBookSignUpPage {
 		System.out.println("Create a new account Page is open");
 	}
 
-	public void setName(String strName) {
+//	public void setName(String strName) {
+//
+//		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys(strName);
+//		System.out.println("First Name is : " + strName + "\n");
+//	}
+//
+//	public void setLastName(String strLastName) {
+//		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys(strLastName);
+//		System.out.println("Last Name is : " + strLastName + "\n");
+//	}
+	
+	
+	public void setName(String strName, String firstName) {
 
-		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys(strName);
+		driver.findElement(By.xpath("//input[@name='"+firstName+"']")).sendKeys(strName);
 		System.out.println("First Name is : " + strName + "\n");
 	}
 
-	public void setLastName(String strLastName) {
-		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys(strLastName);
+	public void setLastName(String strLastName, String lastName) {
+		driver.findElement(By.xpath("//input[@name='"+lastName+"']")).sendKeys(strLastName);
 		System.out.println("Last Name is : " + strLastName + "\n");
 	}
 
@@ -54,14 +66,13 @@ public class FaceBookSignUpPage {
 	public void setMonth(int strMonth) {
 		selectDropdownDate = new Select(driver.findElement(By.xpath("//select[@name='birthday_month']")));
 		selectDropdownDate.selectByIndex(strMonth);
-		System.out.println("Date is : " + strMonth + "\n");
+		
 	}
 
 	public void setYear(String strYear) {
 		selectDropdownDate = new Select(driver.findElement(By.xpath("//select[@name='birthday_year']")));
 		selectDropdownDate.selectByValue(strYear);
 
-		System.out.println("Date is : " + strYear + "\n");
 	}
 
 	public void setGender(String strGender) {
