@@ -9,10 +9,16 @@ public class TestSeleniumDropDown {
 		objSeleniumDropDown.isPopUPVisible();
 		objSeleniumDropDown.closePopUp();
 		objSeleniumDropDown.getDropdownAndValues(objSeleniumDropDown.objConfig.getProperty("strDropDownName"),objSeleniumDropDown.objConfig.getProperty("strDropDownValue"));
-		//objSeleniumDropDown.gettitleOfDemoPage();
-		objSeleniumDropDown.enterAndShowMsg(objSeleniumDropDown.objConfig.getProperty("sendkeysInput"));
-		objSeleniumDropDown.twoInputField(objSeleniumDropDown.objConfig.getProperty("strSumOne"), objSeleniumDropDown.objConfig.getProperty("strSumTwo"));
+		objSeleniumDropDown.verifyDemoPageIsDisplayed();
+		objSeleniumDropDown.verifyInputFields(objSeleniumDropDown.objConfig.getProperty("Single_InputFields"));
 		
+		objSeleniumDropDown.setSingleInput(objSeleniumDropDown.objConfig.getProperty("setSingleInput"));
+		objSeleniumDropDown.clickOnShowMsg();
+		objSeleniumDropDown.verifyMsgOfSingleInput(objSeleniumDropDown.objConfig.getProperty("setSingleInput"));
+		objSeleniumDropDown.verifyInputFields(objSeleniumDropDown.objConfig.getProperty("Two_InputFields"));
+		objSeleniumDropDown.setTwoInputFields(objSeleniumDropDown.objConfig.getProperty("NumberOne"), objSeleniumDropDown.objConfig.getProperty("NumberTwo"));
+		objSeleniumDropDown.clickOnGetTotal();
+		objSeleniumDropDown.verifyMsgOfTwoInputField(objSeleniumDropDown.objConfig.getProperty("NumberOne"), objSeleniumDropDown.objConfig.getProperty("NumberTwo"));
 	}
 
 }
