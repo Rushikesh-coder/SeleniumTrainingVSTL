@@ -10,8 +10,8 @@ public class TestRedioButton {
 		objSeleniumRedioButton.clickOnRedioButton();
 		objSeleniumRedioButton.clickonGetCheckedValueButton();
 		objSeleniumRedioButton.checkResult();
-		objSeleniumRedioButton.checkIsGroupRedioButtonIsSelected();
-		objSeleniumRedioButton.clickiOnGroupRedioButtons();
+		objSeleniumRedioButton.clickiOnGroupRedioButtonsGender();
+		objSeleniumRedioButton.clickOnGroupRedioButtonAge();
 		objSeleniumRedioButton.clickonGetValueButton();
 		objSeleniumRedioButton.checkGroutRedioResult();
 

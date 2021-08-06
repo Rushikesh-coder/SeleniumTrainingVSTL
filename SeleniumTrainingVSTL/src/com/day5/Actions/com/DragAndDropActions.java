@@ -24,13 +24,9 @@ public class DragAndDropActions {
 		WebElement elementTo=driver.findElement(By.xpath("//*[@id='droppable']"));
 		doActions=new Actions(driver);
 		doActions.dragAndDrop(elementFrom, elementTo).build().perform();
-		
-		
-		
 	}
 	public static void main(String[] args) {
 		
-
 		DragAndDropActions objDragAndDropActions=new DragAndDropActions();
 		objDragAndDropActions.initializeWebEnvirnment();
 		objDragAndDropActions.dragAndDrop();

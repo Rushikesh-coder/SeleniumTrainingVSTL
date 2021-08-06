@@ -5,6 +5,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -34,6 +35,12 @@ public class SeleniumRedioButton {
 		}
 	}
 	
+	public void scrollPage(int intScrollBy)
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;  
+		js.executeScript("window.scrollBy(0,"+intScrollBy+")");
+	}
+	
 	public void verifyHeaderTextOfRedioButtonPage()
 	{
 		if (driver.findElement(By.xpath("//h3[text()='This is again simple example to start working with radio buttons using Selenium.']")).isDisplayed()) {
@@ -45,18 +52,22 @@ public class SeleniumRedioButton {
 	
 	public boolean checkIsRedioButtonIsSelected()
 	{
-		boolean blnFlag = true;
+		boolean blnFlag = false;
 		blnFlag = driver.findElement(By.xpath("//input[@value='Male' and @name='optradio']")).isSelected();
 		return blnFlag;
 	}
 	
 	public void clickOnRedioButton()
 	{
-		if(!checkIsRedioButtonIsSelected())
+		if(checkIsRedioButtonIsSelected())
+		{
+			
+			System.out.println("Redio Button is already seleted");
+		}			
+		else
 		{
 			driver.findElement(By.xpath("//input[@value='Male' and @name='optradio']")).click();
-			System.out.println("Check box got seleted");
-		}			
+		}
 	}
 	
 	
@@ -74,31 +85,41 @@ public class SeleniumRedioButton {
 		{
 			System.out.println("Redio button is not selected");
 		}
+		
+		this.scrollPage(400);
 	}
 	
-	public boolean checkIsGroupRedioButtonIsSelected()
-	{
-		boolean blnFlag=true;
-		boolean blnFlagGender = true;
-		boolean blnFlagAge= true;
+	public boolean checkIsGroupRedioButtonGenderIsSelected() {
+
+		boolean blnFlagGender = false;
+
 		blnFlagGender = driver.findElement(By.xpath("//input[@value='Male' and @name='gender']")).isSelected();
+
+		return blnFlagGender;
+	}
+
+	public boolean checkIsGroupRedioButtonAgeIsSelected() {
+		boolean blnFlagAge = false;
 		blnFlagAge = driver.findElement(By.xpath("//input[@value='5 - 15']")).isSelected();
-		if(blnFlagGender && blnFlagAge)
-		{
-			return blnFlag;
-		}
-		else
-		{
-			return blnFlag=false;
+		return blnFlagAge;
+	}
+
+	public void clickiOnGroupRedioButtonsGender() {
+		if (checkIsGroupRedioButtonGenderIsSelected()) {
+
+			System.out.println("Gender is Already Selected");
+		} else {
+			driver.findElement(By.xpath("//input[@value='Male' and @name='gender']")).click();
 		}
 	}
+
+	public void clickOnGroupRedioButtonAge() {
 	
-	public void clickiOnGroupRedioButtons()
-	{
-		if (!checkIsGroupRedioButtonIsSelected()) {
-			driver.findElement(By.xpath("//input[@value='Male' and @name='gender']")).click();
+		if (checkIsGroupRedioButtonAgeIsSelected()) {
+
+			System.out.println("Age is Already Selected");
+		} else {
 			driver.findElement(By.xpath("//input[@value='5 - 15']")).click();
-			System.out.println("Gender and Age is clicked");
 		}
 	}
 	
