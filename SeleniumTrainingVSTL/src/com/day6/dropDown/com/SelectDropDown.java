@@ -25,7 +25,6 @@ public class SelectDropDown {
 		this.loadConfigProperties();
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/externalResources/chromedriver.exe");
 		driver = new ChromeDriver();
-		//driver.get("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
 		driver.get(objConfig.getProperty("AUT_URL_DropDown"));
 		driver.manage().window().maximize();
 
