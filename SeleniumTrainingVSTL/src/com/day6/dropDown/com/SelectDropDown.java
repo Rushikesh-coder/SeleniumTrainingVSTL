@@ -1,5 +1,9 @@
 package com.day6.dropDown.com;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,22 +14,46 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SelectDropDown {
 	
-		
-		public WebDriver driver = null;
+	public WebDriver driver = null;
 	public JavascriptExecutor jsExecutor;
+	public Properties objConfig;
 	public Select dropDown;
 	
 	public Actions doActions;
 
 	public void initializeWebEnvirnment() {
+		this.loadConfigProperties();
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/externalResources/chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
+		//driver.get("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
+		driver.get(objConfig.getProperty("AUT_URL_DropDown"));
 		driver.manage().window().maximize();
 
 	}
 	
-	public void selectRefrence(String strPath)
+	public void loadConfigProperties() {
+		try {
+			objConfig = new Properties();
+			objConfig.load(new FileInputStream(System.getProperty("user.dir") + "/src/configCheckBoxAndRedioButton/config.properties"));
+			System.out.println("No Exception");
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
+			exception.printStackTrace();
+		}
+	}
+	
+	public void setImplicitlyWait(int intTimeInSecond)
+	{
+		driver.manage().timeouts().implicitlyWait(intTimeInSecond, TimeUnit.SECONDS);
+	}
+	
+	public void scrollPage(int intScrollBy)
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;  
+		js.executeScript("window.scrollBy(0,"+intScrollBy+")");
+	}
+	
+	public void selectPath(String strPath)
 	{
 		 dropDown=new Select(driver.findElement(By.xpath("//select[@id='"+strPath+"']")));
 	}
@@ -39,9 +67,20 @@ public class SelectDropDown {
 		}
 	}
 	
+	public void verifySelectListDemoText(String strSelectListPath)    //verify Select Text Single and Multi
+	{
+		By locator= By.xpath("//div[text()='"+strSelectListPath+"']");
+		if (driver.findElement(locator).isDisplayed()) {
+			System.out.println(driver.findElement(locator).getText()+" Text is Visible");
+		} else {
+			System.out.println("Select List Demo field is not visible");
+		}
+
+	}
+	
 	public void getDefalultSelectedItem()
 	{
-		this.selectRefrence("select-demo");
+		this.selectPath("select-demo");
 		String DefaultSelected=dropDown.getFirstSelectedOption().getText();
 
 		System.out.println("Default Selected Item :"+DefaultSelected);
@@ -56,7 +95,7 @@ public class SelectDropDown {
 	
 	
 	
-	public void selectValueFromDropDown()
+	public void selectValueFromDropDown(String strSelectDay)
 	{
 		if(isDropdownSelected())
 		{
@@ -64,18 +103,35 @@ public class SelectDropDown {
 		}
 		else
 		{
-			this.selectRefrence("select-demo");
-			dropDown.selectByVisibleText("Tuesday");
+			this.selectPath("select-demo");
+			dropDown.selectByVisibleText(strSelectDay);
 			
 		}
 	}
 	
-	public void selectMultipleValuesFromDropDown()
+	public void getselectedValue(String getValuePath)    //getSelected value single and Multi
 	{
-		this.selectRefrence("multi-select");
-		dropDown.selectByVisibleText("California");
-		dropDown.selectByVisibleText("New Jersey");
-		dropDown.selectByVisibleText("Texas");
+		String strgetSelectedValue=driver.findElement(By.xpath("//p[@class='"+getValuePath+"']")).getText();
+		System.out.println(strgetSelectedValue);
+	}
+	
+	public void selectMultipleValuesFromDropDown(String strSelectOptionOne, String strSelectOptionTwo, String strSelectOptionThree) {
+		
+		this.selectPath("multi-select");
+		if (dropDown.isMultiple()) {
+			dropDown.selectByVisibleText(strSelectOptionOne);
+			dropDown.selectByVisibleText(strSelectOptionTwo);
+			dropDown.selectByVisibleText(strSelectOptionThree);
+		}
+		else {
+			System.out.println("You cannot select multiple Options");
+		}
 		
 	}
+	
+	public void clickOnGetAllSelectedButton() {
+		
+		driver.findElement(By.xpath("//button[@id='printAll']")).click();
+	}
+	
 }

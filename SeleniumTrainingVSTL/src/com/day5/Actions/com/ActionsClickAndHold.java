@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class OtherActions {
+public class ActionsClickAndHold {
 
 	public WebDriver driver = null;
 	public JavascriptExecutor jsExecutor;
@@ -40,22 +40,14 @@ public class OtherActions {
 		doActions.build().perform();
 	}
 	
-	public void slidebar()
-	{
-		driver.get("https://www.seleniumeasy.com/test/drag-drop-range-sliders-demo.html");
-		
-		WebElement MoveHere=driver.findElement(By.xpath("//h4[text()=' Default value 10']/following::div[1]"));
-		this.doAction();
-		doActions.moveToElement(MoveHere, 50, 0).build().perform();
-		MoveHere.click();
-	}
+	
 
 	public static void main(String[] args) {
 
-	OtherActions objOtherActions=new OtherActions();
-	objOtherActions.initializeWebEnvirnment();
-	objOtherActions.clickAndHold();
-	objOtherActions.slidebar();
+	ActionsClickAndHold objActionsClickAndHold=new ActionsClickAndHold();
+	objActionsClickAndHold.initializeWebEnvirnment();
+	objActionsClickAndHold.clickAndHold();
+	
 	}
 
 }
