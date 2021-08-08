@@ -50,7 +50,7 @@ public class SeleniumCheckBox {
 		js.executeScript("window.scrollBy(0,"+intScrollBy+")");
 	}
 
-	public void verifyHeaderOfCheckBoxPage()    //Header is present or Not
+	public void verifyHeaderOfCheckBoxPageISDisplayde()    //Header is Displayed or Not
 	{
 
 		if (driver.findElement(By.xpath("//h3[text()='This would be a basic example to start with checkboxes using selenium.']"))
@@ -63,9 +63,9 @@ public class SeleniumCheckBox {
 
 	public void verifyCheckboxDemoText(String strCheckBoxPath)  //verifying Text 
 	{
-
+		String strCheckBoxText=driver.findElement(By.xpath("//div[text()='" + strCheckBoxPath + "']")).getText();
 		if (driver.findElement(By.xpath("//div[text()='" + strCheckBoxPath + "']")).isDisplayed()) {
-			System.out.println("Check Box Text is Visible");
+			System.out.println(strCheckBoxText+"  Text is Visible");
 		} else {
 			System.out.println("Check Box field is not visible");
 		}
@@ -82,7 +82,7 @@ public class SeleniumCheckBox {
 
 	public void selectSingleCheckBox()   //Select Check box if not selected
 	{
-		if (verifySingleCheckBoxIsSected()) {
+		if (this.verifySingleCheckBoxIsSected()) {
 			System.out.println("Single check box is already checked");
 		}
 		else {
@@ -104,7 +104,7 @@ public class SeleniumCheckBox {
 	{
 		
 		this.scrollPage(300);
-		if(verifyMultipelCheckBox(strCheckBoxPath)) {
+		if(this.verifyMultipelCheckBox(strCheckBoxPath)) {
 			System.out.println("Single check box is already checked");
 		}
 		else

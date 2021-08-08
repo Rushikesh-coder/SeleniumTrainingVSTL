@@ -36,8 +36,8 @@ public class ActionsClickAndHold {
 		this.doAction();
 		doActions.moveToElement(webElement);
 		doActions.clickAndHold();
-		
 		doActions.build().perform();
+		doActions.release().build().perform();
 	}
 	
 	

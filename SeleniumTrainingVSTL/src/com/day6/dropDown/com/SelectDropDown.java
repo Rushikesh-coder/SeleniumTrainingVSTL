@@ -57,7 +57,7 @@ public class SelectDropDown {
 		 dropDown=new Select(driver.findElement(By.xpath("//select[@id='"+strPath+"']")));
 	}
 	
-	public void checkPegeHeader()
+	public void checkPegeHeaderIsDisplayed()
 	{
 		if (driver.findElement(By.xpath("//h3[text()='This would be your first example on select dropd down list to with Selenium.']")).isDisplayed()) {
 			System.out.println("Header is Displayed");
@@ -114,8 +114,8 @@ public class SelectDropDown {
 		System.out.println(strgetSelectedValue);
 	}
 	
-	public void selectMultipleValuesFromDropDown(String strSelectOptionOne, String strSelectOptionTwo, String strSelectOptionThree) {
-		
+	public void selectMultipleValuesDropDown(String strSelectOptionOne, String strSelectOptionTwo, String strSelectOptionThree) {
+		this.scrollPage(300);
 		this.selectPath("multi-select");
 		if (dropDown.isMultiple()) {
 			dropDown.selectByVisibleText(strSelectOptionOne);
@@ -129,7 +129,7 @@ public class SelectDropDown {
 	}
 	
 	public void clickOnGetAllSelectedButton() {
-		
+		this.setImplicitlyWait(10);
 		driver.findElement(By.xpath("//button[@id='printAll']")).click();
 	}
 	

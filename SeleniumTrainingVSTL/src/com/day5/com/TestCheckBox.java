@@ -5,7 +5,7 @@ public class TestCheckBox {
 	public static void main(String[] args) {
 		SeleniumCheckBox objSeleniumCheckBoxAndRedioButton=new SeleniumCheckBox();
 		objSeleniumCheckBoxAndRedioButton.initilizeWebEnvirnment();
-		objSeleniumCheckBoxAndRedioButton.verifyHeaderOfCheckBoxPage();
+		objSeleniumCheckBoxAndRedioButton.verifyHeaderOfCheckBoxPageISDisplayde();
 		objSeleniumCheckBoxAndRedioButton.verifyCheckboxDemoText(objSeleniumCheckBoxAndRedioButton.objConfig.getProperty("XpSingleCheckBox"));
 		objSeleniumCheckBoxAndRedioButton.verifyCheckboxDemoText(objSeleniumCheckBoxAndRedioButton.objConfig.getProperty("XPMultipleCheckBox"));
 
@@ -19,4 +19,3 @@ public class TestCheckBox {
 	}
 
 }
-//objSeleniumCheckBoxAndRedioButton.verifySingleCheckBoxIsSected();

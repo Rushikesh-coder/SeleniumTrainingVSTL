@@ -12,16 +12,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumRedioButton {
 
 	public WebDriver driver = null;
+	JavascriptExecutor jsExcecuter; 
 	public Properties objConfig;
+	
 	public void initilizeWebEnvirnment() {
 
 		this.loadConfigProperties();
 		System.setProperty("webdriver.chrome.driver",
 				System.getProperty("user.dir") + "/externalResources/chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get(objConfig.getProperty("AUT_URL_DropDown"));
+		driver.get(objConfig.getProperty("AUT_URL_RedioButton"));
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	public void loadConfigProperties() {
@@ -37,11 +38,11 @@ public class SeleniumRedioButton {
 	
 	public void scrollPage(int intScrollBy)
 	{
-		JavascriptExecutor js = (JavascriptExecutor) driver;  
-		js.executeScript("window.scrollBy(0,"+intScrollBy+")");
+		jsExcecuter= (JavascriptExecutor) driver;  
+		jsExcecuter.executeScript("window.scrollBy(0,"+intScrollBy+")");
 	}
 	
-	public void verifyHeaderTextOfRedioButtonPage() //verify Header
+	public void verifyHeaderTextOfRedioButtonPageIsDisplayed() //verify Header
 	{
 		if (driver.findElement(By.xpath("//h3[text()='This is again simple example to start working with radio buttons using Selenium.']")).isDisplayed()) {
 			System.out.println("Header is Displayed");
@@ -50,23 +51,23 @@ public class SeleniumRedioButton {
 		}
 	}
 	
-	public boolean checkIsRedioButtonIsSelected()    //Check redio button is selected
+	public boolean checkIsRadioButtonIsSelected(String strLocator)    //Check radio button is selected
 	{
 		boolean blnFlag = false;
-		blnFlag = driver.findElement(By.xpath("//input[@value='Male' and @name='optradio']")).isSelected();
+		blnFlag = driver.findElement(By.xpath("//input[@value='"+strLocator+"' and @name='optradio']")).isSelected();
 		return blnFlag;
 	}
 	
-	public void clickOnRedioButton()      //click on redio button
+	public void clickOnRedioButton(String strPath)      //click on radio button
 	{
-		if(checkIsRedioButtonIsSelected())
+		if(this.checkIsRadioButtonIsSelected(strPath))
 		{
 			
 			System.out.println("Redio Button is already seleted");
 		}			
 		else
 		{
-			driver.findElement(By.xpath("//input[@value='Male' and @name='optradio']")).click();
+			driver.findElement(By.xpath("//input[@value='"+strPath+"' and @name='optradio']")).click();
 		}
 	}
 	
@@ -91,41 +92,41 @@ public class SeleniumRedioButton {
 		this.scrollPage(400);
 	}
 	
-	public boolean checkIsGroupRedioButtonGenderIsSelected()   // check radio button for Gender isselected
+	public boolean checkIsGroupRedioButtonGenderIsSelected(String LocatorGender)   // check radio button for Gender isselected
 	{
 
 		boolean blnFlagGender = false;
 
-		blnFlagGender = driver.findElement(By.xpath("//input[@value='Male' and @name='gender']")).isSelected();
+		blnFlagGender = driver.findElement(By.xpath("//input[@value='"+LocatorGender+"' and @name='gender']")).isSelected();
 
 		return blnFlagGender;
 	}
 
-	public boolean checkIsGroupRedioButtonAgeIsSelected()    // check radio button for Age isselected
+	public boolean checkIsGroupRedioButtonAgeIsSelected(String locatorAge)    // check radio button for Age isselected
 	{
 		boolean blnFlagAge = false;
-		blnFlagAge = driver.findElement(By.xpath("//input[@value='5 - 15']")).isSelected();
+		blnFlagAge = driver.findElement(By.xpath("//input[@value='"+locatorAge+"']")).isSelected();
 		return blnFlagAge;
 	}
 
-	public void clickiOnGroupRedioButtonsGender()   //click on GroupRedio Button Gender
+	public void clickiOnGroupRedioButtonsGender(String strGenderPath)   //click on GroupRedio Button Gender
 	{
-		if (checkIsGroupRedioButtonGenderIsSelected()) {
+		if (this.checkIsGroupRedioButtonGenderIsSelected(strGenderPath)) {
 
 			System.out.println("Gender is Already Selected");
 		} else {
-			driver.findElement(By.xpath("//input[@value='Male' and @name='gender']")).click();
+			driver.findElement(By.xpath("//input[@value='"+strGenderPath+"' and @name='gender']")).click();
 		}
 	}
 
-	public void clickOnGroupRedioButtonAge()    //click on GroupRedio Button Age
+	public void clickOnGroupRedioButtonAge(String strAgePath)    //click on GroupRedio Button Age
 	{
 	
-		if (checkIsGroupRedioButtonAgeIsSelected()) {
+		if (this.checkIsGroupRedioButtonAgeIsSelected(strAgePath)) {
 
 			System.out.println("Age is Already Selected");
 		} else {
-			driver.findElement(By.xpath("//input[@value='5 - 15']")).click();
+			driver.findElement(By.xpath("//input[@value='"+strAgePath+"']")).click();
 		}
 	}
 	
