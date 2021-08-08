@@ -14,9 +14,8 @@ public class TestSeleniumActions {
 		objSeleniumActions.clickOnSubmitButton();
 		objSeleniumActions.moveToElement();
 		objSeleniumActions.doubleClick();
-//		objSeleniumActions.dragAndDrop();
 		objSeleniumActions.rightClick();
-
+		
 	}
 
 }

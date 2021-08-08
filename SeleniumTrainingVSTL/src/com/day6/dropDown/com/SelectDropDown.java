@@ -33,7 +33,7 @@ public class SelectDropDown {
 	public void loadConfigProperties() {
 		try {
 			objConfig = new Properties();
-			objConfig.load(new FileInputStream(System.getProperty("user.dir") + "/src/configCheckBoxAndRedioButton/config.properties"));
+			objConfig.load(new FileInputStream(System.getProperty("user.dir") + "/src/configDropDown/config.properties"));
 			System.out.println("No Exception");
 		} catch (Exception exception) {
 			System.out.println(exception.getMessage());
@@ -52,7 +52,7 @@ public class SelectDropDown {
 		js.executeScript("window.scrollBy(0,"+intScrollBy+")");
 	}
 	
-	public void selectPath(String strPath)
+	public void selectRefrance(String strPath)
 	{
 		 dropDown=new Select(driver.findElement(By.xpath("//select[@id='"+strPath+"']")));
 	}
@@ -79,7 +79,7 @@ public class SelectDropDown {
 	
 	public void getDefalultSelectedItem()
 	{
-		this.selectPath("select-demo");
+		this.selectRefrance("select-demo");
 		String DefaultSelected=dropDown.getFirstSelectedOption().getText();
 
 		System.out.println("Default Selected Item :"+DefaultSelected);
@@ -102,7 +102,7 @@ public class SelectDropDown {
 		}
 		else
 		{
-			this.selectPath("select-demo");
+			this.selectRefrance("select-demo");
 			dropDown.selectByVisibleText(strSelectDay);
 			
 		}
@@ -116,7 +116,7 @@ public class SelectDropDown {
 	
 	public void selectMultipleValuesDropDown(String strSelectOptionOne, String strSelectOptionTwo, String strSelectOptionThree) {
 		this.scrollPage(300);
-		this.selectPath("multi-select");
+		this.selectRefrance("multi-select");
 		if (dropDown.isMultiple()) {
 			dropDown.selectByVisibleText(strSelectOptionOne);
 			dropDown.selectByVisibleText(strSelectOptionTwo);

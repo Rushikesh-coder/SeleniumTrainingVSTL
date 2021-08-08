@@ -30,10 +30,11 @@ public class SeleniumActions {
 	
 	}
 	
+	
 	public void loadConfigProperties() {
 		try {
 			objConfig = new Properties();
-			objConfig.load(new FileInputStream(System.getProperty("user.dir") + "/src/configCheckBoxAndRedioButton/config.properties"));
+			objConfig.load(new FileInputStream(System.getProperty("user.dir") + "/src/configActions/config.properties"));
 			System.out.println("No Exception");
 		} catch (Exception exception) {
 			System.out.println(exception.getMessage());

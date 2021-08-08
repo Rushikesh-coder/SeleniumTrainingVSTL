@@ -21,7 +21,6 @@ public class SliderActions {
 		driver = new ChromeDriver();
 		driver.get("https://www.seleniumeasy.com/test/drag-drop-range-sliders-demo.html");
 		driver.manage().window().maximize();
-
 	}
 	
 	public void doAction()
