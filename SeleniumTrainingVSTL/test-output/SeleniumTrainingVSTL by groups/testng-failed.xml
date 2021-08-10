@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [SeleniumTrainingVSTL by groups]" guice-stage="DEVELOPMENT">
+  <test name="GRP-ProductDetails" verbose="2">
+    <groups>
+      <run>
+        <include name="ProductDetails"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.day7.TestNGAnotation.com.TestNGAnotetions"/>
+    </classes>
+  </test> <!-- GRP-ProductDetails -->
+</suite> <!-- Failed suite [SeleniumTrainingVSTL by groups] -->
