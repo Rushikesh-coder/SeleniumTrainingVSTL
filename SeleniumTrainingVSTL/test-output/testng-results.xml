@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="3" passed="3" failed="0" skipped="0">
+<testng-results total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-10T11:29:02Z" name="Default suite" finished-at="2021-08-10T11:29:12Z" duration-ms="9988">
+  <suite started-at="2021-08-11T13:26:39Z" name="Default suite" finished-at="2021-08-11T13:26:50Z" duration-ms="10689">
     <groups>
     </groups>
-    <test started-at="2021-08-10T11:29:02Z" name="Default test" finished-at="2021-08-10T11:29:12Z" duration-ms="9988">
-      <class name="com.day7.TestNGIntegration.com.SeleniumEasyPageTest">
-        <test-method is-config="true" signature="setUpWebEnvirnment()[pri:0, instance:com.day7.TestNGIntegration.com.SeleniumEasyPageTest@26d9b808]" started-at="2021-08-10T16:59:02Z" name="setUpWebEnvirnment" finished-at="2021-08-10T16:59:09Z" duration-ms="7555" status="PASS">
+    <test started-at="2021-08-11T13:26:39Z" name="Default test" finished-at="2021-08-11T13:26:50Z" duration-ms="10689">
+      <class name="com.day8.com.SeleniumEasyAlertTest">
+        <test-method is-config="true" signature="initalizewebSetUpEnvirnment()[pri:0, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:39Z" name="initalizewebSetUpEnvirnment" finished-at="2021-08-11T18:56:47Z" duration-ms="7364" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpWebEnvirnment -->
-        <test-method signature="TC_01VerifyDropdownClickOnValueAndInputDemoPageIsDisplayed()[pri:1, instance:com.day7.TestNGIntegration.com.SeleniumEasyPageTest@26d9b808]" started-at="2021-08-10T16:59:09Z" name="TC_01VerifyDropdownClickOnValueAndInputDemoPageIsDisplayed" finished-at="2021-08-10T16:59:10Z" duration-ms="1284" status="PASS">
+        </test-method> <!-- initalizewebSetUpEnvirnment -->
+        <test-method signature="TC_01verifyDropdownClickValueAndPageIsDesplayed()[pri:1, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:47Z" name="TC_01verifyDropdownClickValueAndPageIsDesplayed" finished-at="2021-08-11T18:56:49Z" duration-ms="1870" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_01VerifyDropdownClickOnValueAndInputDemoPageIsDisplayed -->
-        <test-method signature="TC_02VerifySingleInputField()[pri:2, instance:com.day7.TestNGIntegration.com.SeleniumEasyPageTest@26d9b808]" started-at="2021-08-10T16:59:10Z" name="TC_02VerifySingleInputField" finished-at="2021-08-10T16:59:11Z" duration-ms="360" status="PASS">
+        </test-method> <!-- TC_01verifyDropdownClickValueAndPageIsDesplayed -->
+        <test-method signature="TC_02ClickButtonAndVerifyAlertTextAutoCloseSuccess()[pri:2, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_02ClickButtonAndVerifyAlertTextAutoCloseSuccess" finished-at="2021-08-11T18:56:49Z" duration-ms="145" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_02VerifySingleInputField -->
-        <test-method signature="TC_03VerifyMultiInputField()[pri:3, instance:com.day7.TestNGIntegration.com.SeleniumEasyPageTest@26d9b808]" started-at="2021-08-10T16:59:11Z" name="TC_03VerifyMultiInputField" finished-at="2021-08-10T16:59:11Z" duration-ms="418" status="PASS">
+        </test-method> <!-- TC_02ClickButtonAndVerifyAlertTextAutoCloseSuccess -->
+        <test-method signature="TC_03ClickButtonAndVerifyAlertTextNormalSuccess()[pri:3, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_03ClickButtonAndVerifyAlertTextNormalSuccess" finished-at="2021-08-11T18:56:49Z" duration-ms="136" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_03VerifyMultiInputField -->
-        <test-method is-config="true" signature="tearDownCloseEnvirnment()[pri:0, instance:com.day7.TestNGIntegration.com.SeleniumEasyPageTest@26d9b808]" started-at="2021-08-10T16:59:11Z" name="tearDownCloseEnvirnment" finished-at="2021-08-10T16:59:12Z" duration-ms="343" status="PASS">
+        </test-method> <!-- TC_03ClickButtonAndVerifyAlertTextNormalSuccess -->
+        <test-method signature="TC_04ClickButtonAndVerifyAlertTextAutoCloseWarning()[pri:4, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_04ClickButtonAndVerifyAlertTextAutoCloseWarning" finished-at="2021-08-11T18:56:49Z" duration-ms="157" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDownCloseEnvirnment -->
-      </class> <!-- com.day7.TestNGIntegration.com.SeleniumEasyPageTest -->
+        </test-method> <!-- TC_04ClickButtonAndVerifyAlertTextAutoCloseWarning -->
+        <test-method signature="TC_05ClickButtonAndVerifyAlertTextNormalWarning()[pri:5, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_05ClickButtonAndVerifyAlertTextNormalWarning" finished-at="2021-08-11T18:56:49Z" duration-ms="130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_05ClickButtonAndVerifyAlertTextNormalWarning -->
+        <test-method signature="TC_06ClickButtonAndVerifyAlertTextAutoCloseDenger()[pri:6, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_06ClickButtonAndVerifyAlertTextAutoCloseDenger" finished-at="2021-08-11T18:56:49Z" duration-ms="121" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_06ClickButtonAndVerifyAlertTextAutoCloseDenger -->
+        <test-method signature="TC_07ClickButtonAndVerifyAlertTextNormalDenger()[pri:7, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_07ClickButtonAndVerifyAlertTextNormalDenger" finished-at="2021-08-11T18:56:49Z" duration-ms="125" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_07ClickButtonAndVerifyAlertTextNormalDenger -->
+        <test-method signature="TC_08ClickButtonAndVerifyAlertTextAutoCloseINFO()[pri:8, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_08ClickButtonAndVerifyAlertTextAutoCloseINFO" finished-at="2021-08-11T18:56:49Z" duration-ms="117" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_08ClickButtonAndVerifyAlertTextAutoCloseINFO -->
+        <test-method signature="TC_09ClickButtonAndVerifyAlertTextNormalINFO()[pri:9, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:49Z" name="TC_09ClickButtonAndVerifyAlertTextNormalINFO" finished-at="2021-08-11T18:56:50Z" duration-ms="120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_09ClickButtonAndVerifyAlertTextNormalINFO -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.day8.com.SeleniumEasyAlertTest@11392934]" started-at="2021-08-11T18:56:50Z" name="closeBrowser" finished-at="2021-08-11T18:56:50Z" duration-ms="372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.day8.com.SeleniumEasyAlertTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

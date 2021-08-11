@@ -10,7 +10,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+
 
 
 
@@ -28,9 +31,8 @@ public class SeleniumEasyPage {
 	}
 
 	public boolean isPopUPVisible() {
-		
+		objBaseTest.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try {
-			objBaseTest.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			blnFlag = objBaseTest.driver.findElement(By.xpath("//a[@id='at-cv-lightbox-close']")).isDisplayed();
 			return blnFlag;
 		} catch (Exception exception) {
@@ -41,7 +43,7 @@ public class SeleniumEasyPage {
 
 	public void closePopUp() {
 		if (this.isPopUPVisible()) {
-			objBaseTest.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
 			objBaseTest.getDriver().findElement(By.xpath("//a[@id='at-cv-lightbox-close']")).click();
 		}
 
@@ -70,31 +72,24 @@ public class SeleniumEasyPage {
 		this.getvaluesOfDropDown(strSelectValue);
 	}
 	
-	public void verifyDemoPageIsDisplayed()
+	public void verifyDemoPageIsDisplayed(String strExpectedText)
 	{
-		String strText=objBaseTest.getDriver().findElement(By.xpath("//h3[text()='This would be your first example to start with Selenium.']")).getText();
+		objBaseTest.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		By locator=By.xpath("//h3[text()='This would be your first example to start with Selenium.']");	
 		
-		if(objBaseTest.getDriver().findElement(By.xpath("//h3[text()='This would be your first example to start with Selenium.']")).isDisplayed())
-		{
-			System.out.println("Simple form Demo Page is Open : "+strText);
-		}
-		else
-		{
-			System.out.println("Page not Open");
-		}
+		String strActualText=objBaseTest.getDriver().findElement(locator).getText();
+		Assert.assertTrue(strExpectedText.equals(strActualText));
+		
 	}
 	
 
 	
-	public void verifyInputFields(String strInputField)   //Single and Multi
-	{
-		if(objBaseTest.getDriver().findElement(By.xpath("//div[text()='"+strInputField+"']")).isDisplayed())
-		{
-			System.out.println(strInputField+" : Visible ");
-		}
-		else {
-			System.out.println(strInputField+" : Not Visible");
-		}
+	public void verifyInputFields(String strInputField,String strExpectedInputFieldText)   //Single and Multi
+	{	
+		By locatorInputFieldText=By.xpath("//div[text()='"+strInputField+"']");
+		String actualInputFieldText=objBaseTest.getDriver().findElement(locatorInputFieldText).getText();
+		Assert.assertTrue(strExpectedInputFieldText.equals(actualInputFieldText));
+		
 	}
 
 	public void setSingleInput(String strsendkeys)
@@ -112,14 +107,9 @@ public class SeleniumEasyPage {
 	public void verifyMsgOfSingleInput(String strExpectedMsg) {
 		
 		String strActualText = objBaseTest.getDriver().findElement(By.xpath("//*[@id='display']")).getText();
-		if(strActualText.equals(strExpectedMsg))
-		{
-			System.out.println("Massege is Verifed : Same : "+strExpectedMsg);
-		}
-		else
-		{
-			System.out.println("Wrong Massege ");
-		}
+		
+		System.out.println("Massege is  : "+strExpectedMsg);
+		Assert.assertTrue(strExpectedMsg.equals(strActualText));
 	}
 	
 	//Two Input Field
@@ -139,15 +129,9 @@ public class SeleniumEasyPage {
 		int intResult= Integer.parseInt(strNumberOne)+Integer.parseInt(strNumberTwo);
 		
 		String strActualSum = objBaseTest.getDriver().findElement(By.xpath("//*[@id='displayvalue']")).getText();
-		if(intResult==Integer.parseInt(strActualSum))
-		{
-			System.out.println("Sum is Correct : Verifyed : "+strActualSum);
-		}
-		else
-		{
-			System.out.println("Wrong Calculation ");
-		}
 
+		System.out.println("Sum is : "+strActualSum);
+		Assert.assertTrue(intResult==Integer.parseInt(strActualSum));
 	}
 	
 }

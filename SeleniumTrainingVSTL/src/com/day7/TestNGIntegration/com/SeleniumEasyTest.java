@@ -4,7 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class SeleniumEasyPageTest  extends BaseTest{
+public class SeleniumEasyTest  extends BaseTest{
 
 	private SeleniumEasyPage objSeleniumEasyPage;
 	
@@ -25,13 +25,13 @@ public class SeleniumEasyPageTest  extends BaseTest{
 	{
 		objSeleniumEasyPage.closePopUp();
 		objSeleniumEasyPage.getDropdownAndValues(this.objConfig.getProperty("strDropDownName"), this.objConfig.getProperty("strDropDownValue"));
-		objSeleniumEasyPage.verifyDemoPageIsDisplayed();
+		objSeleniumEasyPage.verifyDemoPageIsDisplayed(this.objConfig.getProperty("strExpectedHomePageText"));
 	}
 	
 	@Test(priority = 2)
 	public void TC_02VerifySingleInputField()
 	{
-		objSeleniumEasyPage.verifyInputFields(this.objConfig.getProperty("Single_InputFields"));
+		objSeleniumEasyPage.verifyInputFields(this.objConfig.getProperty("Single_InputFieldsXpath"), this.objConfig.getProperty("Single_InputField"));
 		objSeleniumEasyPage.setSingleInput(this.objConfig.getProperty("setSingleInput"));
 		objSeleniumEasyPage.clickOnShowMsg();
 		objSeleniumEasyPage.verifyMsgOfSingleInput(this.objConfig.getProperty("setSingleInput"));
@@ -40,7 +40,7 @@ public class SeleniumEasyPageTest  extends BaseTest{
 	@Test(priority = 3)
 	public void TC_03VerifyMultiInputField()
 	{
-		objSeleniumEasyPage.verifyInputFields(this.objConfig.getProperty("Two_InputFields"));
+		objSeleniumEasyPage.verifyInputFields(this.objConfig.getProperty("Two_InputFieldsXpath"),this.objConfig.getProperty("Two_InputField"));
 		objSeleniumEasyPage.setTwoInputFields(this.objConfig.getProperty("xpathEnter_A"), this.objConfig.getProperty("NumberOne"));
 		objSeleniumEasyPage.setTwoInputFields(this.objConfig.getProperty("xpathEnter_B"), this.objConfig.getProperty("NumberTwo"));
 		objSeleniumEasyPage.clickOnGetTotal();

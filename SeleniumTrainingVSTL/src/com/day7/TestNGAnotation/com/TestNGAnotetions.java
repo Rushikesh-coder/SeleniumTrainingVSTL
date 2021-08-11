@@ -34,48 +34,48 @@ public class TestNGAnotetions {
 	@BeforeClass
 	public void initializeWebEnvirnment()
 	{
-		System.out.println("Website Envirnment get setup");
+		System.out.println("Website Envirnment get setup  -BeforeClass");
 	}
 	
 	@AfterClass
 	public void tearDown()
 	{
-		System.out.println("Closed Browser");
+		System.out.println("Closed Browser  - AfterClass");
 	}
 	
 	@BeforeMethod
 	public void clickOnSearch()
 	{
-		System.out.println("Search Icon Clicked");
+		System.out.println("Search Icon Clicked   -BeforeMethod");
 	}
 	@AfterMethod
 	public void clickBack()
 	{
-		System.out.println("back to home page");
+		System.out.println("back to home page   -AfterMethod");
 	}
 	
 	@Test(priority = 1)
 	public void enterProductDetailsGrocery()
 	{
-		System.out.println("grocery Product details are enterd and clicked on search");
+		System.out.println("grocery Product details are enterd and clicked on search    -Test");
 	}
 	
 	@Test(priority = 2)
 	public void enterProductDetailsCloths()
 	{
-		System.out.println("TShirt product Details are enterd and clicked on serch");
+		System.out.println("TShirt product Details are enterd and clicked on serch       -Test");
 	}
 	
 	@Test(priority = 3, groups="ProductDetails")
 	public void clickOnProductDetailsTV()
 	{
-		System.out.println("Product Details of TV is  Enterd and clicked on search ");
+		System.out.println("Product Details of TV is  Enterd and clicked on search         -Test");
 	}
 	
 	@Test(priority = 4, groups="ProductDetails")
 	public void clickOnProductDetailsComputer()
 	{
-		System.out.println("Product Details of Computer is Enterd and clicked on search ");
+		System.out.println("Product Details of Computer is Enterd and clicked on search    -Test");
 	}
 	
 	
