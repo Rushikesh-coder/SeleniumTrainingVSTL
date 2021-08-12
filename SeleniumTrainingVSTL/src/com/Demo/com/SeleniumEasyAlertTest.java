@@ -1,4 +1,4 @@
-package com.day8.com;
+package com.Demo.com;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -33,7 +33,8 @@ public class SeleniumEasyAlertTest extends BaseTest {
 	public void TC_02ClickButtonAndVerifyAlertTextAutoCloseSuccess()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("autoclosable-btn-success");
-		objSeleniumEasyAlertPage.verifyMassageAlertAutoSuccessMassage(objConfig.getProperty("strExpectedalertMassageAutoCloseSuccess"));
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-success alert-autocloseable-success", objConfig.getProperty("strExpectedalertMassageAutoCloseSuccess"));
+		
 	}
 	
 	@Test(priority = 3)
@@ -41,47 +42,47 @@ public class SeleniumEasyAlertTest extends BaseTest {
 	{
 		
 		objSeleniumEasyAlertPage.clickOnMassageButton("normal-btn-success");
-		objSeleniumEasyAlertPage.verifyMassageAlertNormalSuccessMassage(objConfig.getProperty("strExpectedalertMassageNormalSuccess"));
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-success alert-normal-success",objConfig.getProperty("strExpectedalertMassageNormalSuccess"));
 	}
 	
 	@Test(priority = 4)
 	public void TC_04ClickButtonAndVerifyAlertTextAutoCloseWarning()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("autoclosable-btn-warning");
-		objSeleniumEasyAlertPage.verifyMassageAlertAutoWarningMassage(objConfig.getProperty("strExpectedMassegeAutoWarning"));
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-warning alert-autocloseable-warning",objConfig.getProperty("strExpectedMassegeAutoWarning"));
 	}
 	
 	@Test(priority = 5)
 	public void TC_05ClickButtonAndVerifyAlertTextNormalWarning()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("normal-btn-warning");
-		objSeleniumEasyAlertPage.verifyMassageAlertNormalWarningMassage(objConfig.getProperty("strExpectedMassegeNormalWarning"));
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-warning alert-normal-warning",objConfig.getProperty("strExpectedMassegeNormalWarning"));
 	}
 	
 	@Test(priority = 6)
 	public void TC_06ClickButtonAndVerifyAlertTextAutoCloseDenger()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("autoclosable-btn-danger");
-		objSeleniumEasyAlertPage.verifyMassageAlertAutoDengerMassage();
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-danger alert-autocloseable-danger",objConfig.getProperty("strExpectedMassageAutoDenger"));
 	}
 	@Test(priority = 7)
 	public void TC_07ClickButtonAndVerifyAlertTextNormalDenger()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("normal-btn-danger");
-		objSeleniumEasyAlertPage.verifyMassageAlertNormalDengerMassage();
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-danger alert-normal-danger",objConfig.getProperty("strExpectedMassageNormalDenger"));
 	}
 	
 	@Test(priority = 8)
 	public void TC_08ClickButtonAndVerifyAlertTextAutoCloseINFO()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("autoclosable-btn-info");
-		objSeleniumEasyAlertPage.verifyMassageAlertAutoInFoMassage();
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-info alert-autocloseable-info",objConfig.getProperty("strExpectedMassageAutoINFO"));
 	}
 	
 	@Test(priority = 9)
 	public void TC_09ClickButtonAndVerifyAlertTextNormalINFO() {
 		objSeleniumEasyAlertPage.clickOnMassageButton("normal-btn-info");
-		objSeleniumEasyAlertPage.verifyMassageAlertNormalInFoMassage();
+		objSeleniumEasyAlertPage.verifyMassageAlertText("alert alert-info alert-normal-info",objConfig.getProperty("strExpectedMassageNormalInfo"));
 	}
 	
 	@AfterClass

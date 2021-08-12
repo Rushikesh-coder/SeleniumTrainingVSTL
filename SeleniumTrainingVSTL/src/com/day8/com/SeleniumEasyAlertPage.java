@@ -1,9 +1,11 @@
 package com.day8.com;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 
@@ -12,8 +14,9 @@ public class SeleniumEasyAlertPage {
 	
 	public Properties objConfig;
 
-
 	private BaseTest objBaseTest;
+	
+	public boolean blnAlertMsg;
 	
 	public SeleniumEasyAlertPage(BaseTest baseTest)
 	{
@@ -51,8 +54,7 @@ public class SeleniumEasyAlertPage {
 
 	public void getvaluesOfDropDown(String strValueOfDropDown) {
 
-		By locaterOFValue = By
-				.xpath("//div[@id='navbar-brand-centered']//ul/li/a[text()='" + strValueOfDropDown + "']");
+		By locaterOFValue = By.xpath("//div[@id='navbar-brand-centered']//ul/li/a[text()='" + strValueOfDropDown + "']");
 
 		objBaseTest.getDriver().findElement(locaterOFValue).click();
 
@@ -102,6 +104,7 @@ public class SeleniumEasyAlertPage {
 	}
 	
 	
+	
 	public void verifyMassageAlertNormalSuccessMassage(String strExpectedMassageAlert)
 	{
 		String strActualMassage=this.getMassageAlertTextNormalSuccessMassage();
@@ -113,11 +116,25 @@ public class SeleniumEasyAlertPage {
 		Assert.assertTrue(strExpectedMassageAlert.equals(strTrim));
 	}
 	
+	//===================================================================================================================================
+	
+	public boolean verifyAlertMassageISDisplayed(By strLocator)
+	{
+		blnAlertMsg=false;
+		blnAlertMsg=objBaseTest.getDriver().findElement(strLocator).isDisplayed();
+		
+		return  blnAlertMsg;
+	}
+	
 	
 	//auto close warning 
 	public String getMassageAlertTextAutoWarning()
 	{
-		String strActualMassage=objBaseTest.getDriver().findElement(By.xpath("//div[contains(text(),'an autocloseable warning message. I will hide in 3 seconds.')]")).getText();
+		By locator=By.xpath("//div[@class='alert alert-warning alert-autocloseable-warning']");
+		
+		Assert.assertTrue(verifyAlertMassageISDisplayed(locator));
+		System.out.println("\nText is Displayd returning text warning auto new\n");
+		String strActualMassage=objBaseTest.getDriver().findElement(locator).getText();
 		
 		return strActualMassage;
 	}
@@ -130,11 +147,14 @@ public class SeleniumEasyAlertPage {
 	}
 	
 	
-	
 	//normal Warning
+	
 	public String getMassageAlertTextNormalWorningMassage()
 	{
-		String strActualMassage=objBaseTest.getDriver().findElement(By.xpath("//div[@class='alert alert-warning alert-normal-warning']")).getText();
+		By locator=By.xpath("//div[@class='alert alert-warning alert-normal-warning']");
+		Assert.assertTrue(verifyAlertMassageISDisplayed(locator));
+		System.out.println("\nText is Displayd returning text warning auto\n");
+		String strActualMassage=objBaseTest.getDriver().findElement(locator).getText();
 		return strActualMassage;
 	}
 	
@@ -150,8 +170,6 @@ public class SeleniumEasyAlertPage {
 	}
 	
 	
-	
-	
 	//Auto Close Denger
 	public String getMassageAlertTextAutoDenger()
 	{
@@ -160,11 +178,11 @@ public class SeleniumEasyAlertPage {
 		return strActualMassage;
 	}
 	
-	public void verifyMassageAlertAutoDengerMassage(String strExpectedMassageAlert)
+	public void verifyMassageAlertAutoDengerMassage()
 	{
-		String strActualMassage=this.getMassageAlertTextAutoDenger();
-		System.out.println("Denger value : "+strActualMassage);
-		Assert.assertTrue(strExpectedMassageAlert.equals(strActualMassage));
+		By locator=By.xpath("//div[@class='alert alert-danger alert-autocloseable-danger']");
+		Assert.assertTrue(verifyAlertMassageISDisplayed(locator));
+		System.out.println("\nText is Displayd text Denger auto new\n");
 	}
 	
 	
@@ -176,34 +194,37 @@ public class SeleniumEasyAlertPage {
 	}
 	
 	
-	public void verifyMassageAlertNormalDengerMassage(String strExpectedMassageAlert)
+	public void verifyMassageAlertNormalDengerMassage()
 	{
-		String strActualMassage=this.getMassageAlertTextNormalDengerMassage();
-		String strReplace=strActualMassage.replace('×', ' ');
-		String strTrim=strReplace.trim();
+		By locator=By.xpath("//div[@class='alert alert-danger alert-normal-danger']");
+	//	String strActualMassage=this.getMassageAlertTextNormalDengerMassage();
 		
-		System.out.println("Avalue Normal Denger: "+ strTrim);
-		Assert.assertTrue(strExpectedMassageAlert.equals(strTrim));
+		List<WebElement> list = objBaseTest.getDriver().findElements(locator);
+		Assert.assertTrue(list.size()==1);
+//		Assert.assertTrue(list.contains(strText));
 	}
 	
 	
-	//Auto Close Info
-	public String getMassageAlertTextAutoInFo()
-	{
-		String strActualMassage=objBaseTest.getDriver().findElement(By.xpath("//div[contains(text(),'an autocloseable info message. I will hide in 6 seconds.')]")).getText();
-		
+	//Auto Close Info pageSource
+	public String getMassageAlertTextAutoInFo() {
+
+		By locator = By.xpath("//div[@class='alert alert-info alert-autocloseable-info']");
+		Assert.assertTrue(verifyAlertMassageISDisplayed(locator));
+		String strActualMassage = objBaseTest.getDriver().findElement(locator).getText();
+
 		return strActualMassage;
 	}
 	
-	public void verifyMassageAlertAutoInFoMassage(String strExpectedMassageAlert)
+	public void verifyMassageAlertAutoInFoMassage()
 	{
 		String strActualMassage=this.getMassageAlertTextAutoInFo();
-		System.out.println("INFO value : "+strActualMassage);
-		Assert.assertTrue(strExpectedMassageAlert.equals(strActualMassage));
+
+		Assert.assertTrue(objBaseTest.getDriver().getPageSource().contains(strActualMassage));
+		System.out.println("AutoCloseble InFO is present and verifyed");
 	}
 	
 	
-	//normal-info
+	//normal-info  
 	public String getMassageAlertTextNormalInFoMassage()
 	{
 		String strActualMassage=objBaseTest.getDriver().findElement(By.xpath("//div[@class='alert alert-info alert-normal-info']")).getText();
@@ -211,13 +232,9 @@ public class SeleniumEasyAlertPage {
 	}
 	
 	
-	public void verifyMassageAlertNormalInFoMassage(String strExpectedMassageAlert)
-	{
-		String strActualMassage=this.getMassageAlertTextNormalInFoMassage();
-		String strReplace=strActualMassage.replace('×', ' ');
-		String strTrim=strReplace.trim();
+	public void verifyMassageAlertNormalInFoMassage() {
+		String strActualMassage = this.getMassageAlertTextAutoInFo();
+		Assert.assertTrue(objBaseTest.getDriver().getPageSource().contains(strActualMassage));
 		
-		System.out.println("Avalue Normal INFO: "+ strTrim);
-		Assert.assertTrue(strExpectedMassageAlert.equals(strTrim));
 	}
 }
