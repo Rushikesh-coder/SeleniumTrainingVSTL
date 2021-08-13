@@ -48,14 +48,14 @@ public class SeleniumEasyAlertTest extends BaseTest {
 	public void TC_04ClickButtonAndVerifyAlertTextAutoCloseWarning()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("autoclosable-btn-warning");
-		objSeleniumEasyAlertPage.verifyMassageAlertAutoWarningMassage(objConfig.getProperty("strExpectedMassegeAutoWarning"));
+		objSeleniumEasyAlertPage.verifyMassageAlertAutoWarningMassage();
 	}
 	
 	@Test(priority = 5)
 	public void TC_05ClickButtonAndVerifyAlertTextNormalWarning()
 	{
 		objSeleniumEasyAlertPage.clickOnMassageButton("normal-btn-warning");
-		objSeleniumEasyAlertPage.verifyMassageAlertNormalWarningMassage(objConfig.getProperty("strExpectedMassegeNormalWarning"));
+		objSeleniumEasyAlertPage.verifyMassageAlertNormalWarningMassage();
 	}
 	
 	@Test(priority = 6)

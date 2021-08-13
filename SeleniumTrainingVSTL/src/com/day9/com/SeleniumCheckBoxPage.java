@@ -12,8 +12,6 @@ public class SeleniumCheckBoxPage {
 
 	private BaseTest objBaseTest;
 	
-	private SoftAssert objSoftAssert=new SoftAssert();
-	
 	public SeleniumCheckBoxPage(BaseTest baseTest)
 	{
 		this.objBaseTest=baseTest;
@@ -46,7 +44,6 @@ public class SeleniumCheckBoxPage {
 	public void selectSingleCheckBox()   //Select Check box if not selected
 	{
 		Assert.assertFalse(verifySingleCheckBoxIsSected());
-		
 		objBaseTest.getDriver().findElement(By.xpath("//input[@id='isAgeSelected']")).click();
 	}
 	

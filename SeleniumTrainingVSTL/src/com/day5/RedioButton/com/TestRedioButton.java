@@ -10,6 +10,7 @@ public class TestRedioButton {
 		objSeleniumRedioButton.clickOnRedioButton("Female");
 		objSeleniumRedioButton.clickonGetCheckedValueButton();
 		objSeleniumRedioButton.checkResult();
+		
 		objSeleniumRedioButton.clickiOnGroupRedioButtonsGender("Male");
 		objSeleniumRedioButton.clickOnGroupRedioButtonAge("5 - 15");
 		objSeleniumRedioButton.clickonGetValueButton();
